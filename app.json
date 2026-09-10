@@ -1,0 +1,29 @@
+{
+  "name": "LIO TECH AII",
+  "description": "LIO TECH Suite - AI-powered tools for Kurdish, Mobile, Movies & Image Generation",
+  "repository": "https://github.com/khoshawiihasso4-afk/LIO-TECH-AII",
+  "keywords": ["AI", "Kurdish", "Mobile", "Movies", "Image Generation"],
+  "env": {
+    "GEMINI_API_KEY": {
+      "description": "Your Google Gemini API key for AI features",
+      "required": true
+    },
+    "TMDB_API_KEY": {
+      "description": "Your TMDB API key for movie data",
+      "required": true
+    },
+    "PORT": {
+      "description": "Server port",
+      "value": "3000",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "start": "node server.js"
+  }
+}
