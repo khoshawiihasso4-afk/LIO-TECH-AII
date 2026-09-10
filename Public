@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08080a">
+<title>LIO TECH Suite — Created by KHOSHAWII HASSO</title>
+
+<!-- Fonts & External Libraries -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            red: '#ff4d4d',
+            orange: '#ff9f43',
+            blue: '#007aff',
+            purple: '#5856d6',
+            green: '#20bf6b',
+            darkBg: '#08080a',
+            darkCard: '#121216',
+            darkBorder: '#22222a'
+          }
+        },
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', '"Noto Kufi Arabic"', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+:root {
+  --bg-color: #f4f5f8;
+  --card-bg: #ffffff;
+  --card-border: #e2e4e9;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-red: #ff4d4d;
+  --accent-blue: #007aff;
+  --header-bg: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  --bg-color: #08080a;
+  --card-bg: #121216;
+  --card-border: #22222a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-red: #ff4d4d;
+  --accent-blue: #38bdf8;
+  --header-bg: rgba(18, 18, 22, 0.85);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', 'Noto Kufi Arabic', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-nav {
+  background: var(--header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.gradient-btn-red {
+  background: linear-gradient(135deg, #ff4d4d, #ff7676);
+  box-shadow: 0 4px 20px rgba(255, 77, 77, 0.35);
+}
+
+.gradient-btn-red:hover {
+  box-shadow: 0 6px 25px rgba(255, 77, 77, 0.5);
+}
+
+.gradient-btn-blue {
+  background: linear-gradient(135deg, #007aff, #5856d6);
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.35);
+}
+
+.gradient-btn-blue:hover {
+  box-shadow: 0 6px 25px rgba(0, 122, 255, 0.5);
+}
+
+.gradient-btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.gradient-btn-whatsapp:hover {
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  font-weight: 700;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.markdown-body h2 { font-size: 1.2rem; color: #ff4d4d; }
+.markdown-body ul { list-style-type: disc; padding-inline-start: 1.2rem; margin: 0.4rem 0; }
+.markdown-body ol { list-style-type: decimal; padding-inline-start: 1.2rem; margin: 0.4rem 0; }
+.markdown-body strong { font-weight: 700; color: #10b981; }
+.markdown-body code {
+  background: rgba(150, 150, 150, 0.15);
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  font-size: 0.88em;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 140, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(140, 140, 140, 0.5); }
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.35s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased">
+
+<!-- TOP HEADER NAVBAR -->
+<header class="sticky top-0 z-50 glass-nav transition-colors">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+    
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('kurdish-ai')">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-xl gradient-btn-red shadow-lg">
+        L
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-lg font-black tracking-tight">LIO <span class="text-red-500">TECH</span></span>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 font-extrabold border border-red-500/20">SUITE</span>
+        </div>
+        <p class="text-[10px] text-gray-500 dark:text-gray-400 font-medium">By KHOSHAWII HASSO</p>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs (Desktop) -->
+    <nav class="hidden md:flex items-center gap-1 bg-gray-200/60 dark:bg-gray-800/60 p-1.5 rounded-2xl border border-[var(--card-border)] text-xs font-bold">
+      <button onclick="switchTab('kurdish-ai')" id="tab-btn-kurdish-ai" class="nav-tab-btn px-4 py-2 rounded-xl transition-all flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-red-500">
+        <i class="fa-solid fa-robot"></i>
+        <span id="navKurdishAiText">کوردستان AI</span>
+      </button>
+      <button onclick="switchTab('mobile-advisor')" id="tab-btn-mobile-advisor" class="nav-tab-btn px-4 py-2 rounded-xl transition-all flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-500">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span id="navMobileText">ڕاوێژکاری مۆبایل</span>
+      </button>
+      <button onclick="switchTab('movies')" id="tab-btn-movies" class="nav-tab-btn px-4 py-2 rounded-xl transition-all flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-amber-500">
+        <i class="fa-solid fa-film"></i>
+        <span id="navMoviesText">فیلمەکان</span>
+      </button>
+      <button onclick="switchTab('image-creator')" id="tab-btn-image-creator" class="nav-tab-btn px-4 py-2 rounded-xl transition-all flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-500">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span id="navImageText">دروستکردنی وێنە</span>
+      </button>
+    </nav>
+
+    <!-- Action Controls -->
+    <div class="flex items-center gap-2">
+      <!-- WhatsApp Direct Support -->
+      <button onclick="openWhatsAppModal()" class="px-3 py-2 text-xs font-bold text-white rounded-xl gradient-btn-whatsapp transition-all flex items-center gap-1.5 shadow-md" title="پەیوەندی بە WhatsApp">
+        <i class="fa-brands fa-whatsapp text-sm"></i>
+        <span class="hidden sm:inline" id="headerWhatsappText">پشتیوانی WhatsApp</span>
+      </button>
+
+      <!-- Language Toggle -->
+      <button onclick="toggleLanguage()" class="w-9 h-9 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:bg-red-500/10 hover:text-red-500 transition-all flex items-center justify-center font-bold text-xs" title="گۆڕینی زمان">
+        🌐
+      </button>
+
+      <!-- Theme Switcher -->
+      <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:bg-amber-500/10 hover:text-amber-500 transition-all flex items-center justify-center text-sm" title="تاریک / ڕۆشن">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Navigation Bar -->
+  <div class="md:hidden flex items-center justify-around bg-[var(--card-bg)] border-t border-[var(--card-border)] py-2 px-1 text-[11px] font-bold">
+    <button onclick="switchTab('kurdish-ai')" id="mob-btn-kurdish-ai" class="mob-tab-btn flex flex-col items-center gap-1 p-1 text-gray-500">
+      <i class="fa-solid fa-robot text-base"></i>
+      <span>کوردستان AI</span>
+    </button>
+    <button onclick="switchTab('mobile-advisor')" id="mob-btn-mobile-advisor" class="mob-tab-btn flex flex-col items-center gap-1 p-1 text-gray-500">
+      <i class="fa-solid fa-mobile-screen-button text-base"></i>
+      <span>مۆبایل</span>
+    </button>
+    <button onclick="switchTab('movies')" id="mob-btn-movies" class="mob-tab-btn flex flex-col items-center gap-1 p-1 text-gray-500">
+      <i class="fa-solid fa-film text-base"></i>
+      <span>فیلم</span>
+    </button>
+    <button onclick="switchTab('image-creator')" id="mob-btn-image-creator" class="mob-tab-btn flex flex-col items-center gap-1 p-1 text-gray-500">
+      <i class="fa-solid fa-wand-magic-sparkles text-base"></i>
+      <span>وێنە</span>
+    </button>
+  </div>
+</header>
+
+<!-- MAIN APP WRAPPER -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
+
+  <!-- ========================================================================= -->
+  <!-- TAB 1: KURDISH AI ASSISTANT -->
+  <!-- ========================================================================= -->
+  <section id="tab-kurdish-ai" class="tab-content active space-y-6">
+    
+    <!-- Hero Banner -->
+    <div class="rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden bg-gradient-to-r from-red-600 via-rose-600 to-amber-600">
+      <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-extrabold">
+          <i class="fa-solid fa-bolt text-amber-300"></i>
+          <span>LIO TECH Kurdish AI • Powered by Gemini 3 Flash</span>
+        </div>
+
+        <h1 id="kurdishHeroTitle" class="text-3xl sm:text-5xl font-black leading-tight">
+          یاریدەدەری زیرەکی دەستکرد بە زمانی کوردی
+        </h1>
+
+        <p id="kurdishHeroDesc" class="text-sm sm:text-base opacity-95 leading-relaxed font-medium">
+          پرسیارەکەت بکە و وەڵامی دروست، خێرا و ڕێکخراو بە کوردیی سۆرانی وەربگرە. بەرهمهێنراوە لەلایەن KHOSHAWII HASSO.
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-2 text-xs">
+          <button onclick="openWhatsAppModal('پەیام لەسەر LIO AI')" class="px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 backdrop-blur-md font-bold transition-all flex items-center gap-1.5">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>پشتیوانی ڕاستەوخۆ</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Ask Chips -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+      <span class="font-bold text-gray-500 whitespace-nowrap" id="quickAskLabel">پێشنیاری خێرا:</span>
+      <button onclick="setKurdishPrompt('چۆن iPhone ـەکەم خێراتر بکەم؟')" class="px-3 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-red-500 transition-all whitespace-nowrap shadow-sm">📱 خێراکردنی iPhone</button>
+      <button onclick="setKurdishPrompt('بۆچی Android ـەکەم خاوە و چۆن چاکی بکەم؟')" class="px-3 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-red-500 transition-all whitespace-nowrap shadow-sm">🤖 خێراکردنی Android</button>
+      <button onclick="setKurdishPrompt('چۆن تەندروستی باتری مۆبایل بپارێزم؟')" class="px-3 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-red-500 transition-all whitespace-nowrap shadow-sm">🔋 پاراستنی باتری</button>
+      <button onclick="setKurdishPrompt('باشترین ئەپەکانی ساڵی 2026 بۆ مۆبایل کامەن؟')" class="px-3 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-red-500 transition-all whitespace-nowrap shadow-sm">📲 ئەپە بەسوودەکان</button>
+    </div>
+
+    <!-- Chat Box Workspace -->
+    <div class="p-5 sm:p-7 rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-xl space-y-5">
+      
+      <div class="flex items-center justify-between border-b border-[var(--card-border)] pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-black text-lg gradient-btn-red">
+            LIO
+          </div>
+          <div>
+            <h2 class="text-base font-bold flex items-center gap-2">
+              <span>LIO AI Assistant</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </h2>
+            <p class="text-xs text-[var(--text-muted)]" id="kurdishSubhead">وەڵامدەرەوەی پرسیارەکان بە زمانی کوردی</p>
+          </div>
+        </div>
+
+        <button onclick="clearKurdishChat()" class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-[var(--card-border)] hover:bg-red-500/10 hover:text-red-500 transition-all flex items-center gap-1.5" title="پاککردنەوە">
+          <i class="fa-solid fa-trash-can"></i>
+          <span class="hidden sm:inline" id="clearKurdishBtnText">پاککردنەوە</span>
+        </button>
+      </div>
+
+      <!-- Messages History -->
+      <div id="kurdishChatHistory" class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+        <!-- Appended dynamically -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="space-y-3 pt-2">
+        <div class="relative">
+          <textarea
+            id="kurdishInput"
+            rows="3"
+            class="w-full p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--bg-color)] text-sm focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all resize-none"
+            placeholder="پرسیارەکەت لێرە بنووسە بە زمانی کوردی یان ئینگلیزی..."
+          ></textarea>
+        </div>
+
+        <div class="flex items-center justify-between gap-3">
+          <div class="text-xs text-[var(--text-muted)]">
+            <span id="creatorTag">دروستکراوە لەلایەن: <strong class="text-red-500">KHOSHAWII HASSO</strong></span>
+          </div>
+
+          <button
+            id="sendKurdishBtn"
+            onclick="sendKurdishMessage()"
+            class="py-3 px-6 rounded-xl gradient-btn-red text-white font-extrabold text-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+          >
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+            <span id="sendKurdishBtnLabel">ناردنی پرسیار</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- TAB 2: MOBILE ADVISOR & TROUBLESHOOTING -->
+  <!-- ========================================================================= -->
+  <section id="tab-mobile-advisor" class="tab-content space-y-6">
+    
+    <!-- Hero Banner -->
+    <div class="rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-extrabold">
+          <i class="fa-solid fa-mobile-screen text-cyan-300"></i>
+          <span>LIO AI • Mobile Specialist</span>
+        </div>
+
+        <h1 id="mobileHeroTitle" class="text-3xl sm:text-5xl font-black leading-tight">
+          ڕاوێژکاری مۆبایل و چارەسەری کێشەکان
+        </h1>
+
+        <p id="mobileHeroDesc" class="text-sm sm:text-base opacity-95 leading-relaxed font-medium">
+          دیاریکردنی باشترین مۆبایل بۆ یاری، کامێرا، باتری و نرخ، لەگەڵ چارەسەری کێشەکانی iOS و Android.
+        </p>
+
+        <!-- Quick Search -->
+        <div class="pt-2 flex flex-col sm:flex-row gap-2">
+          <input
+            id="mobileQuickInput"
+            type="text"
+            class="flex-1 px-4 py-3 rounded-2xl bg-white text-gray-900 placeholder-gray-400 text-sm font-medium focus:outline-none shadow-inner"
+            placeholder="کێشەکەت بنووسە یان بپرسە کێشەی چی هەیه..."
+          >
+          <button 
+            onclick="askMobileQuick()"
+            class="px-6 py-3 rounded-2xl bg-gray-900 hover:bg-black text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2"
+          >
+            <span id="mobileAskText">پرسیار بکه</span>
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-base font-extrabold flex items-center gap-2">
+          <i class="fa-solid fa-layer-group text-blue-500"></i>
+          <span id="mobCatTitle">بەشەکانی پێشنیارکردنی مۆبایل</span>
+        </h2>
+        <span class="text-xs text-[var(--text-muted)]">کلیک بکە بۆ ڕاوێژکاری</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-right">
+        <button onclick="askMobileCategory('باشترین مۆبایل بۆ یاری PUBG و FPS بەرەو سەرەوە کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">🎮</span>
+          <strong class="block text-sm font-bold">یاری & Gaming</strong>
+          <span class="text-xs text-[var(--text-muted)]">FPS, Cooling, GPU</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین مۆبایل بۆ کامێرا و وێنەگرتنی شەو کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">📸</span>
+          <strong class="block text-sm font-bold">کامێرا & ڤیدیۆ</strong>
+          <span class="text-xs text-[var(--text-muted)]">4K, OIS, Portrait</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین مۆبایل لە ڕووی بەرگەگرتنی باتری و شارژی خێرا کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">🔋</span>
+          <strong class="block text-sm font-bold">باتری & شارژ</strong>
+          <span class="text-xs text-[var(--text-muted)]">mAh, Fast Charge</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین مۆبایل بۆ خێرایی و پرۆسێسەر (Performance) کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">⚡</span>
+          <strong class="block text-sm font-bold">خێرایی & پرۆسێسەر</strong>
+          <span class="text-xs text-[var(--text-muted)]">Snapdragon, Bionic</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین مۆبایل لە ڕووی نرخ و تایبەتمەندی (Budget Phone) کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">💰</span>
+          <strong class="block text-sm font-bold">بودجەی گونجاو</strong>
+          <span class="text-xs text-[var(--text-muted)]">Best Value</span>
+        </button>
+
+        <button onclick="askMobileCategory('کامیان باشترە؟ iPhone 16 Pro Max یان Samsung S25 Ultra؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">🍎</span>
+          <strong class="block text-sm font-bold">iPhone vs Android</strong>
+          <span class="text-xs text-[var(--text-muted)]">iOS vs One UI</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین ئەپەکانی سڕینەوەی ڤایرۆس و خێراکردنی مۆبایل کامەن؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">📲</span>
+          <strong class="block text-sm font-bold">ئەپە بەسوودەکان</strong>
+          <span class="text-xs text-[var(--text-muted)]">Security, Speed</span>
+        </button>
+
+        <button onclick="askMobileCategory('باشترین مۆبایلی گشتی سەرانسەری لە بازاڕدا کامەیە؟')" class="p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-blue-500/50 hover:scale-[1.02] transition-all shadow-sm group text-right">
+          <span class="text-2xl mb-2 block group-hover:scale-110 transition-transform">🏆</span>
+          <strong class="block text-sm font-bold">باشترینی سەرانسەری</strong>
+          <span class="text-xs text-[var(--text-muted)]">Top Pick 2026</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Troubleshooting Cards -->
+    <div class="space-y-3">
+      <h2 class="text-base font-extrabold flex items-center gap-2">
+        <i class="fa-solid fa-wrench text-amber-500"></i>
+        <span>🔧 چارەسەری کێشە نیشاندراوەکانی مۆبایل</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">🐌</div>
+          <h3 class="font-bold text-sm">مۆبایلەکەم زۆر خاو بووەتەوە</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            هۆکارەکانی وەستان و خاوبوونەوەی مۆبایلەکەت بدۆزەرەوە و بە هەنگاوی ئاسان خێرای بکەرەوە.
+          </p>
+          <button onclick="askMobileCategory('مۆبایلەکەم زۆر خاوە و لەکاتی بەکارهێناندا دەوەستێت. هەنگاو بە هەنگاو ڕێنماییم بدە بۆ خێراکردنەوەی.')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            چارەسەر بکە
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">🔋</div>
+          <h3 class="font-bold text-sm">باتری زوو تەواو دەبێت</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            بزانە بۆچی شارژی باتری مۆبایلەکەت بە خێرایی دادەبەزێت و چۆن تەندروستی باتری بپارێزیت.
+          </p>
+          <button onclick="askMobileCategory('باتری مۆبایلەکەم زۆر زوو تەواو دەبێت. هۆکارەکەی چییە و چۆن بەکارهێنانی وزە کەم بکەمەوە؟')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            پشکنینی باتری
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">🌡️</div>
+          <h3 class="font-bold text-sm">مۆبایلم زۆر گەرم دەکات</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            هۆکارەکانی گەرمبوونی مۆبایل لە کاتی یاری، شارژکردن یان بەکارهێنانی ڕۆژانە.
+          </p>
+          <button onclick="askMobileCategory('مۆبایلەکەم لە کاتی شارژ یان یاری کردندا زۆر گەرم دەبێت. هۆکار و چارەسەری چییە؟')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            پشکنینی گەرمبوون
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">📶</div>
+          <h3 class="font-bold text-sm">کێشەی Wi-Fi & ئینتەرنێت</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            چارەسەرکردنی پچڕانی Wi-Fi، خاوی Mobile Data و لاوازی سیگناڵی تۆڕ.
+          </p>
+          <button onclick="askMobileCategory('Wi-Fi و Mobile Data ی مۆبایلەکەم پچڕ پچڕ دەبێت یان سیگناڵی لاوازە. چۆن چاکی بکەم؟')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            چارەسەری تۆڕ
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">🔊</div>
+          <h3 class="font-bold text-sm">کێشەی دەنگ و سپیکەر</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            دەنگی نزم، لێڵبوون یان کارنەکردنی سپیکەری سەرەکی و سپیکەری پەیوەندی.
+          </p>
+          <button onclick="askMobileCategory('سپیکەری مۆبایلەکەم دەنگی زۆر نزمە یان لێڵە. چۆن کێشەکە چارەسەر بکەم؟')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            چاککردنی دەنگ
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm space-y-3">
+          <div class="text-3xl">📷</div>
+          <h3 class="font-bold text-sm">کێشەی کامێرا</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            فوکەس نەکردنی کامێرا، لێڵبوونی وێنە یان ڕەشبوونی شاشەی کامێرا.
+          </p>
+          <button onclick="askMobileCategory('کامێرای مۆبایلەکەم وێنەی لێڵ دەگرێت یان فوکەس ناکات. چۆن ڕێکی بخەمەوە؟')" class="w-full py-2 px-4 rounded-xl bg-blue-500/10 text-blue-500 font-bold text-xs hover:bg-blue-500/20 transition-colors">
+            چاککردنی کامێرا
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Advisor Dedicated Workspace -->
+    <div id="mobileWorkspace" class="p-5 sm:p-7 rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-xl space-y-5">
+      <div class="flex items-center justify-between border-b border-[var(--card-border)] pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-black text-lg gradient-btn-blue">
+            MOB
+          </div>
+          <div>
+            <h2 class="text-base font-bold flex items-center gap-2">
+              <span>LIO Mobile Workspace</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+            </h2>
+            <p class="text-xs text-[var(--text-muted)]">پسپۆڕی تەکنەلۆژی مۆبایل</p>
+          </div>
+        </div>
+
+        <button onclick="clearMobileChat()" class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-[var(--card-border)] hover:bg-red-500/10 hover:text-red-500 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-trash-can"></i>
+          <span>پاککردنەوە</span>
+        </button>
+      </div>
+
+      <div id="mobileChatHistory" class="space-y-4 max-h-[450px] overflow-y-auto pr-1">
+        <!-- Messages appended dynamically -->
+      </div>
+
+      <div class="space-y-3 pt-2">
+        <textarea
+          id="mobileInput"
+          rows="3"
+          class="w-full p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--bg-color)] text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+          placeholder="نموونە: بودجەم ٥٠٠ دۆلارە، باشترین مۆبایل بۆ یاری و کامێرا چییە؟..."
+        ></textarea>
+
+        <div class="flex items-center justify-between gap-3">
+          <select id="mobileLang" class="p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs font-bold focus:outline-none">
+            <option value="ku">کوردیی سۆرانی</option>
+            <option value="en">English</option>
+          </select>
+
+          <button
+            id="sendMobileBtn"
+            onclick="sendMobileMessage()"
+            class="py-3 px-6 rounded-xl gradient-btn-blue text-white font-extrabold text-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+          >
+            <i class="fa-solid fa-robot"></i>
+            <span id="sendMobileBtnLabel">پرسیار لە پسپۆڕ بکە</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- TAB 3: LIO MOVIES -->
+  <!-- ========================================================================= -->
+  <section id="tab-movies" class="tab-content space-y-6">
+    
+    <!-- Hero Banner -->
+    <div class="rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-extrabold">
+          <i class="fa-solid fa-clapperboard text-yellow-200"></i>
+          <span>TMDB Stream & AI Movie Advisor</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black leading-tight">
+          LIO <span class="text-yellow-300">MOVIES</span>
+        </h1>
+
+        <p class="text-sm sm:text-base opacity-95 leading-relaxed font-medium">
+          گەڕان لە جیهانی فیلمەکان، بینینی زانیاری تەواو، تریلەری YouTube و وەرگێڕانی و پوختەی زیرەکی LIO AI.
+        </p>
+
+        <!-- Search Box -->
+        <div class="pt-2 flex gap-2 max-w-2xl">
+          <input
+            id="movieSearchInput"
+            type="text"
+            class="flex-1 px-4 py-3 rounded-2xl bg-white text-gray-900 placeholder-gray-400 text-sm font-medium focus:outline-none shadow-inner"
+            placeholder="ناوی فیلم بنووسە... (English / Kurdish)"
+            onkeydown="if(event.key==='Enter')searchMovies()"
+          >
+          <button 
+            onclick="searchMovies()"
+            class="px-6 py-3 rounded-2xl bg-gray-900 hover:bg-black text-white font-bold text-sm shadow-lg transition-all"
+          >
+            🔍
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs font-bold">
+      <button onclick="loadMovieCategory('popular', this)" class="movie-cat-btn px-4 py-2 rounded-xl bg-amber-500 text-white transition-all shadow-md">Popular</button>
+      <button onclick="loadMovieCategory('now_playing', this)" class="movie-cat-btn px-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-amber-500 transition-all">Now Playing</button>
+      <button onclick="loadMovieCategory('top_rated', this)" class="movie-cat-btn px-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-amber-500 transition-all">Top Rated</button>
+      <button onclick="loadMovieCategory('upcoming', this)" class="movie-cat-btn px-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-amber-500 transition-all">Upcoming</button>
+    </div>
+
+    <!-- Genres Chips -->
+    <div id="movieGenresContainer" class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+      <!-- Genre chips dynamically loaded -->
+    </div>
+
+    <!-- AI Movie Advisor Chat Section -->
+    <div class="p-5 rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-md space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-red-500 text-white flex items-center justify-center font-black text-sm">
+          🎬
+        </div>
+        <div>
+          <h3 class="font-extrabold text-sm">LIO AI Movie Recommendation Advisor</h3>
+          <p class="text-xs text-[var(--text-muted)]">پێم بڵێ چی جۆرە فیلمێکت خۆش دەوێت تا پێشنیارت بۆ بکەم</p>
+        </div>
+      </div>
+
+      <div id="movieAiChat" class="h-44 overflow-y-auto p-3 rounded-2xl bg-[var(--bg-color)] text-xs space-y-3">
+        <div class="p-3 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] max-w-[85%]">
+          سڵاو 👋 من LIO AI ـم. پێم بڵێ حەزت لە چ جۆرە فیلمێکە (ئەکشن، ترسناک، کۆمیدی، ڕۆمانسی، sci-fi) تا باشترین پێشنیارت بۆ بکەم!
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <input
+          id="movieAiInput"
+          type="text"
+          class="flex-1 px-4 py-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs focus:outline-none focus:border-amber-500"
+          placeholder="بۆ نموونە: فیلمێکی ترسناک و پڕ لە هیجان کە دوای ساڵی 2020 دروستکرابێت..."
+          onkeydown="if(event.key==='Enter')askMovieAI()"
+        >
+        <button onclick="askMovieAI()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md">
+          پێشنیار بکه
+        </button>
+      </div>
+    </div>
+
+    <!-- Movies Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 id="movieSectionTitle" class="text-lg font-extrabold">Popular Movies</h2>
+        <span class="text-xs text-[var(--text-muted)]">TMDB Infinite Stream</span>
+      </div>
+
+      <div id="moviesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <!-- Movie cards loaded dynamically -->
+      </div>
+
+      <div id="moviesLoadingMore" class="hidden text-center py-6 text-xs text-[var(--text-muted)]">
+        <i class="fa-solid fa-spinner animate-spin text-base"></i>
+        <span>بارکردنی فیلمی زیاتر...</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- TAB 4: AI IMAGE CREATOR -->
+  <!-- ========================================================================= -->
+  <section id="tab-image-creator" class="tab-content space-y-6">
+    
+    <!-- Hero Banner -->
+    <div class="rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600">
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-extrabold">
+          <i class="fa-solid fa-paint-brush text-pink-200"></i>
+          <span>Gemini 3.1 Flash Image Generator</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black leading-tight">
+          دروستکردنی وێنە بە AI
+        </h1>
+
+        <p class="text-sm sm:text-base opacity-95 leading-relaxed font-medium">
+          وێنەی خەونەکانت ببنە ڕاستی! وەسفی وێنەکە بنووسە و رێگە بە LIO AI بدە بۆت دروست بکات.
+        </p>
+
+        <div class="pt-1 inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-xs font-extrabold">
+          <span>توانای بەکارهێنانی ڕۆژانە:</span>
+          <span id="imgDailyCounter" class="text-amber-300 font-black">10 / 10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Generator Controls -->
+    <div class="p-6 rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-xl space-y-4">
+      <h3 class="text-base font-extrabold flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i>
+        <span>وەسفی وێنەکەت بنووسە</span>
+      </h3>
+
+      <textarea
+        id="imagePrompt"
+        rows="4"
+        class="w-full p-4 rounded-2xl border border-[var(--card-border)] bg-[var(--bg-color)] text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-y"
+        placeholder="وەسفی وێنەکە بە ئینگلیزی یان کوردی... (نموونە: A futuristic luxury smartphone inside a glowing cyberpunk laboratory, 8k resolution, photorealistic, cinematic light)"
+      ></textarea>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-bold text-[var(--text-muted)] mb-1">Aspect Ratio (ڕێژەی ڕووبەر)</label>
+          <select id="imageRatio" class="w-full p-3 rounded-xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs font-bold focus:outline-none">
+            <option value="1:1">1:1 — Square (چوارگۆشە)</option>
+            <option value="16:9">16:9 — Landscape (پان)</option>
+            <option value="9:16">9:16 — Portrait (ستونی - Story)</option>
+            <option value="4:3">4:3 — Classic (کلاسیک)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[var(--text-muted)] mb-1">Visual Style (شێوازی وێنە)</label>
+          <select id="imageStyle" class="w-full p-3 rounded-xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs font-bold focus:outline-none">
+            <option value="photorealistic">Photorealistic (ڕاستەقینە)</option>
+            <option value="cinematic">Cinematic (سینەمایی)</option>
+            <option value="anime">Anime & Manga (ئەنیمی)</option>
+            <option value="3d render">3D Render (سی ڕەهەندی)</option>
+            <option value="digital art">Digital Art (هونەری دیجیتاڵی)</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        id="generateImgBtn"
+        onclick="generateImage()"
+        class="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 text-white font-black text-sm shadow-xl hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+      >
+        <i class="fa-solid fa-sparkles"></i>
+        <span id="generateImgBtnText">✨ دروستکردنی وێنە</span>
+      </button>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="space-y-3">
+      <h3 class="text-lg font-extrabold flex items-center gap-2">
+        <i class="fa-solid fa-images text-pink-500"></i>
+        <span>وێنە دروستکراوەکانت</span>
+      </h3>
+
+      <div id="imageGallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div id="emptyGalleryMsg" class="col-span-full text-center py-12 border border-dashed border-[var(--card-border)] rounded-3xl text-gray-400 text-xs font-medium">
+          هێشتا هیچ وێنەیەک دروست نەکراوە. وەسفێک بنووسە و کلیلەکە داگرە!
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="pt-10 pb-8 text-center text-xs text-[var(--text-muted)] border-t border-[var(--card-border)] space-y-3 mt-10 bg-[var(--card-bg)]">
+  <div class="flex items-center justify-center gap-2 font-black text-sm text-[var(--text-main)]">
+    <span class="w-6 h-6 rounded-lg gradient-btn-red flex items-center justify-center text-white text-xs">L</span>
+    <span>LIO TECH Suite — Created by KHOSHAWII HASSO</span>
+  </div>
+  <p id="footerText">کۆمەڵەی ئامرازە زیرەکەکانی تەکنەلۆژیا، مۆبایل، فیلم و دروستکردنی وێنە</p>
+  <div class="flex items-center justify-center gap-4 text-xs font-bold pt-1">
+    <button onclick="openWhatsAppModal('پەیام بۆ پشتیوانی')" class="text-emerald-500 hover:underline flex items-center gap-1">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>+964 750 776 7066</span>
+    </button>
+  </div>
+  <p class="opacity-60">© 2026 KHOSHAWII HASSO. All rights reserved.</p>
+</footer>
+
+
+<!-- WHATSAPP SUPPORT DIRECT MODAL -->
+<div id="whatsappModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-[var(--card-bg)] border border-[var(--card-border)] max-w-md w-full rounded-3xl p-6 shadow-2xl space-y-4 relative animate-fade-in">
+    
+    <button onclick="closeWhatsAppModal()" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all text-xs">
+      ✕
+    </button>
+
+    <div class="flex items-center gap-3 border-b border-[var(--card-border)] pb-3">
+      <div class="w-12 h-12 rounded-2xl gradient-btn-whatsapp text-white flex items-center justify-center text-2xl font-bold">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <div>
+        <h3 class="font-black text-base text-[var(--text-main)]">پشتیوانی ڕاستەوخۆی WhatsApp</h3>
+        <p class="text-xs text-emerald-500 font-bold">KHOSHAWII HASSO • +964 750 776 7066</p>
+      </div>
+    </div>
+
+    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+      ئەگەر کێشەیەک یان پرسیارێکت هەیە، دەتوانیت لێرە پەیامەکەت بنووسیت و کاتێک کلیلی ناردن دادەگریت، ڕاستەوخۆ دەچێتە سەر WhatsApp بۆ خاوەنی ماڵپەڕ.
+    </p>
+
+    <!-- Quick Message Selector -->
+    <div class="space-y-1.5">
+      <label class="block text-xs font-bold text-[var(--text-muted)]">هەڵبژاردنی بابەتی خێرا:</label>
+      <select id="waQuickSubject" onchange="applyWaTemplate()" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs font-semibold focus:outline-none">
+        <option value="general">👋 سڵاو کاک خۆشاوی، پرسیارێکم هەیە</option>
+        <option value="mobile">📱 یاسای یارمەتی و کێشەی مۆبایل</option>
+        <option value="movies">🎬 پرسیار لەسەر LIO Movies</option>
+        <option value="image">🎨 پشتیوانی دروستکردنی وێنەی AI</option>
+      </select>
+    </div>
+
+    <!-- Message Area -->
+    <div class="space-y-1.5">
+      <label class="block text-xs font-bold text-[var(--text-muted)]">پەیامەکەت:</label>
+      <textarea
+        id="waMessageText"
+        rows="4"
+        class="w-full p-3 rounded-2xl border border-[var(--card-border)] bg-[var(--bg-color)] text-xs focus:outline-none focus:border-emerald-500 transition-all resize-none"
+        placeholder="پەیامەکەت لێرە بنووسە..."
+      ></textarea>
+    </div>
+
+    <button
+      onclick="sendDirectWhatsApp()"
+      class="w-full py-3.5 rounded-2xl gradient-btn-whatsapp text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition-all cursor-pointer"
+    >
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span>ڕاستەوخۆ بنێرە بۆ WhatsApp</span>
+    </button>
+
+  </div>
+</div>
+
+
+<!-- MOVIE DETAIL MODAL -->
+<div id="movieModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden overflow-y-auto p-4 sm:p-6">
+  <div class="max-w-4xl mx-auto my-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-3xl overflow-hidden relative shadow-2xl">
+    <button onclick="closeMovieModal()" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-red-600 transition-all text-sm font-bold">
+      ✕
+    </button>
+    <div id="movieModalContent" class="p-6">
+      <!-- Dynamically filled -->
+    </div>
+  </div>
+</div>
+
+
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-gray-900 text-white text-xs font-bold shadow-2xl transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2">
+  <i class="fa-solid fa-circle-info text-emerald-400"></i>
+  <span id="toastMsg">...</span>
+</div>
+
+
+<script>
+/* =========================================================================
+   GLOBAL STATE & CONSTANTS
+   ========================================================================= */
+
+// API Keys & Config
+const GEMINI_TEXT_MODEL = "gemini-3-flash-preview";
+const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image";
+const TMDB_API_KEY = "221f6ad4c29a6a2c968a1c0b7687ab18";
+const WHATSAPP_PHONE = "9647507767066"; // +9647507767066 KHOSHAWII HASSO
+
+// API key can be set here or injected at runtime
+const apiKey = ""; 
+
+// Language state ('ku' or 'en')
+let currentLang = "ku";
+
+// Chat Memories
+let kurdishChatHistory = [];
+let mobileChatHistory = [];
+let movieAiHistory = [];
+
+// Movies state
+let currentMoviesList = [];
+let movieGenresList = [];
+let movieCurrentPage = 1;
+let movieTotalPages = 1;
+let movieActiveCategory = "popular";
+let movieActiveGenreId = null;
+let movieActiveSearchQuery = "";
+let isMoviesLoading = false;
+
+/* =========================================================================
+   DOM INITIALIZATION
+   ========================================================================= */
+window.addEventListener('DOMContentLoaded', () => {
+  // Theme setup
+  const savedTheme = localStorage.getItem("lio-suite-dark");
+  if (savedTheme === "false") {
+    document.documentElement.classList.remove("dark");
+    document.getElementById("themeIcon").className = "fa-solid fa-sun";
+  } else {
+    document.documentElement.classList.add("dark");
+    document.getElementById("themeIcon").className = "fa-solid fa-moon";
+  }
+
+  // Welcome Messages
+  initKurdishWelcome();
+  initMobileWelcome();
+
+  // Load Movies Data
+  loadMovieGenres();
+  loadMovieCategory('popular');
+
+  // Update Image Counter
+  updateImageCounterUI();
+});
+
+function switchTab(tabId) {
+  // Hide all tab content
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  
+  // Show target tab
+  const target = document.getElementById(`tab-${tabId}`);
+  if (target) target.classList.add('active');
+
+  // Reset tab button states (Desktop)
+  document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+    btn.classList.remove('bg-red-500', 'bg-blue-500', 'bg-amber-500', 'bg-purple-500', 'text-white');
+    btn.classList.add('text-gray-700', 'dark:text-gray-300');
+  });
+
+  // Reset mobile tab button states
+  document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+    btn.classList.remove('text-red-500', 'text-blue-500', 'text-amber-500', 'text-purple-500');
+    btn.classList.add('text-gray-500');
+  });
+
+  // Activate selected tab highlight
+  const dBtn = document.getElementById(`tab-btn-${tabId}`);
+  const mBtn = document.getElementById(`mob-btn-${tabId}`);
+
+  let activeColorClass = 'bg-red-500';
+  let activeTextColorClass = 'text-red-500';
+
+  if (tabId === 'mobile-advisor') { activeColorClass = 'bg-blue-500'; activeTextColorClass = 'text-blue-500'; }
+  else if (tabId === 'movies') { activeColorClass = 'bg-amber-500'; activeTextColorClass = 'text-amber-500'; }
+  else if (tabId === 'image-creator') { activeColorClass = 'bg-purple-500'; activeTextColorClass = 'text-purple-500'; }
+
+  if (dBtn) {
+    dBtn.classList.add(activeColorClass, 'text-white');
+    dBtn.classList.remove('text-gray-700', 'dark:text-gray-300');
+  }
+  if (mBtn) {
+    mBtn.classList.add(activeTextColorClass);
+    mBtn.classList.remove('text-gray-500');
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleDarkMode() {
+  const isDark = document.documentElement.classList.toggle("dark");
+  const themeIcon = document.getElementById("themeIcon");
+  
+  if (isDark) {
+    themeIcon.className = "fa-solid fa-moon";
+    localStorage.setItem("lio-suite-dark", "true");
+  } else {
+    themeIcon.className = "fa-solid fa-sun";
+    localStorage.setItem("lio-suite-dark", "false");
+  }
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+  toastMsg.textContent = msg;
+  toast.classList.remove("opacity-0", "pointer-events-none");
+  setTimeout(() => {
+    toast.classList.add("opacity-0", "pointer-events-none");
+  }, 3000);
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "ku" ? "en" : "ku";
+  const htmlEl = document.documentElement;
+
+  if (currentLang === "en") {
+    htmlEl.lang = "en";
+    htmlEl.dir = "ltr";
+
+    document.getElementById("navKurdishAiText").textContent = "Kurdish AI";
+    document.getElementById("navMobileText").textContent = "Mobile Advisor";
+    document.getElementById("navMoviesText").textContent = "Movies";
+    document.getElementById("navImageText").textContent = "AI Images";
+    document.getElementById("headerWhatsappText").textContent = "WhatsApp Support";
+
+    document.getElementById("kurdishHeroTitle").textContent = "Kurdish AI Smart Assistant";
+    document.getElementById("kurdishHeroDesc").textContent = "Get fast, accurate answers in Kurdish & English. Created by KHOSHAWII HASSO.";
+    document.getElementById("quickAskLabel").textContent = "Quick Prompts:";
+    document.getElementById("clearKurdishBtnText").textContent = "Clear";
+    document.getElementById("sendKurdishBtnLabel").textContent = "Send Prompt";
+    document.getElementById("kurdishInput").placeholder = "Write your question in English or Kurdish...";
+
+    document.getElementById("mobileHeroTitle").textContent = "Mobile Advisor & Troubleshooter";
+    document.getElementById("mobileHeroDesc").textContent = "Find top gaming, camera, and battery smartphones, plus iOS & Android fixes.";
+    document.getElementById("mobileAskText").textContent = "Ask AI";
+
+  } else {
+    htmlEl.lang = "ku";
+    htmlEl.dir = "rtl";
+
+    document.getElementById("navKurdishAiText").textContent = "کوردستان AI";
+    document.getElementById("navMobileText").textContent = "ڕاوێژکاری مۆبایل";
+    document.getElementById("navMoviesText").textContent = "فیلمەکان";
+    document.getElementById("navImageText").textContent = "دروستکردنی وێنە";
+    document.getElementById("headerWhatsappText").textContent = "پشتیوانی WhatsApp";
+
+    document.getElementById("kurdishHeroTitle").textContent = "یاریدەدەری زیرەکی دەستکرد بە زمانی کوردی";
+    document.getElementById("kurdishHeroDesc").textContent = "پرسیارەکەت بکە و وەڵامی دروست، خێرا و ڕێکخراو بە کوردیی سۆرانی وەربگرە. بەرهمهێنراوە لەلایەن KHOSHAWII HASSO.";
+    document.getElementById("quickAskLabel").textContent = "پێشنیاری خێرا:";
+    document.getElementById("clearKurdishBtnText").textContent = "پاککردنەوە";
+    document.getElementById("sendKurdishBtnLabel").textContent = "ناردنی پرسیار";
+    document.getElementById("kurdishInput").placeholder = "پرسیارەکەت لێرە بنووسە بە زمانی کوردی یان ئینگلیزی...";
+
+    document.getElementById("mobileHeroTitle").textContent = "ڕاوێژکاری مۆبایل و چارەسەری کێشەکان";
+    document.getElementById("mobileHeroDesc").textContent = "دیاریکردنی باشترین مۆبایل بۆ یاری، کامێرا، باتری و نرخ، لەگەڵ چارەسەری کێشەکانی iOS و Android.";
+    document.getElementById("mobileAskText").textContent = "پرسیار بکه";
+  }
+
+  showToast(currentLang === "ku" ? "زمان گۆڕدرا بۆ کوردی" : "Switched to English");
+}
+
+
+/* =========================================================================
+   WHATSAPP DIRECT SUPPORT LOGIC
+   ========================================================================= */
+function openWhatsAppModal(prefilledTopic = "") {
+  const modal = document.getElementById("whatsappModal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  if (prefilledTopic) {
+    document.getElementById("waMessageText").value = prefilledTopic;
+  } else {
+    applyWaTemplate();
+  }
+}
+
+function closeWhatsAppModal() {
+  const modal = document.getElementById("whatsappModal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+
+function applyWaTemplate() {
+  const subject = document.getElementById("waQuickSubject").value;
+  const msgInput = document.getElementById("waMessageText");
+
+  if (subject === "general") {
+    msgInput.value = "سڵاو کاک خۆشاوی، من سەردانی LIO TECH Suite م کردووە و حەزم لێیە پرسیارێک بکەم لەسەر...";
+  } else if (subject === "mobile") {
+    msgInput.value = "سڵاو کاک خۆشاوی، کێشەیەکم هەیە لە مۆبایلەکەم (جۆر:    ) و پێویستم بە پشتیوانییە...";
+  } else if (subject === "movies") {
+    msgInput.value = "سڵاو کاک خۆشاوی، سەبارەت بە LIO Movies پرسیارێک یان تێبینیەکم هەیە...";
+  } else if (subject === "image") {
+    msgInput.value = "سڵاو کاک خۆشاوی، پێویستم بە یارمەتییە لە دروستکردنی وێنە بە LIO AI Image Creator...";
+  }
+}
+
+function sendDirectWhatsApp() {
+  const message = document.getElementById("waMessageText").value.trim();
+  if (!message) {
+    showToast("تکایە پەیامەکەت بنووسە پیش ناردن.");
+    return;
+  }
+
+  // Format WhatsApp Link
+  const encodedMsg = encodeURIComponent(message);
+  const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
+
+  // Open in new tab
+  window.open(waUrl, '_blank');
+  closeWhatsAppModal();
+  showToast("دەواژۆی WhatsApp کرایەوە!");
+}
+
+
+/* =========================================================================
+   TAB 1: KURDISH AI MODULE LOGIC
+   ========================================================================= */
+function initKurdishWelcome() {
+  const welcomeText = `سڵاو! من **LIO AI** م، یاریدەدەری زیرەکی تۆ لە ماڵپەڕی **LIO TECH** بە سەرپەرشتی **KHOSHAWII HASSO**.
+
+چۆن دەتوانم یارمەتیدەت بم ئه‌مرۆ؟ دەتوانیت پرسیار لەسەر مۆبایل، تەکنەلۆژیا، زانست، ئەپەکان و هەموو بابەتێک بکەیت.`;
+  appendMessageUI("kurdishChatHistory", "ai", welcomeText, "LIO");
+}
+
+function setKurdishPrompt(text) {
+  document.getElementById("kurdishInput").value = text;
+  document.getElementById("kurdishInput").focus();
+}
+
+function clearKurdishChat() {
+  kurdishChatHistory = [];
+  document.getElementById("kurdishChatHistory").innerHTML = "";
+  initKurdishWelcome();
+  showToast("چاتی کوردستان AI پاککرایەوە");
+}
+
+async function sendKurdishMessage() {
+  const input = document.getElementById("kurdishInput");
+  const text = input.value.trim();
+  const sendBtn = document.getElementById("sendKurdishBtn");
+
+  if (!text) return;
+
+  input.value = "";
+  sendBtn.disabled = true;
+  document.getElementById("sendKurdishBtnLabel").textContent = "LIO بیردەکاتەوە...";
+
+  appendMessageUI("kurdishChatHistory", "user", text);
+
+  const systemInstruction = `You are LIO AI, the official Kurdish AI Assistant of LIO TECH, created by KHOSHAWII HASSO.
+Respond primarily in natural, clear Kurdish Sorani (or English if the user asks in English).
+Formatting guidelines:
+- Use markdown, bullet points, and numbered lists for steps.
+- Maintain a polite, professional, and helpful persona.
+- Mention LIO TECH & Khoshawii Hasso when relevant.`;
+
+  kurdishChatHistory.push({ role: 'user', parts: [{ text }] });
+
+  try {
+    const resText = await callGeminiTextAPI(systemInstruction, kurdishChatHistory);
+    kurdishChatHistory.push({ role: 'model', parts: [{ text: resText }] });
+    appendMessageUI("kurdishChatHistory", "ai", resText, "LIO");
+  } catch (err) {
+    appendMessageUI("kurdishChatHistory", "ai", `❌ کێشەیەک ڕوویدا: ${err.message}`, "LIO");
+  }
+
+  sendBtn.disabled = false;
+  document.getElementById("sendKurdishBtnLabel").textContent = currentLang === 'ku' ? 'ناردنی پرسیار' : 'Send Prompt';
+}
+
+document.getElementById("kurdishInput").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    sendKurdishMessage();
+  }
+});
+
+
+/* =========================================================================
+   TAB 2: MOBILE ADVISOR LOGIC
+   ========================================================================= */
+function initMobileWelcome() {
+  const welcomeText = `سڵاو! من پسپۆڕی مۆبایل و تەکنەلۆژیام لە **LIO TECH**.
+دەتوانیت بپرسیت لەسەر:
+- 📱 **کڕینی مۆبایل**: دیاریکردنی باشترین مۆبایل بەپێی بودجەکەت
+- 🛠️ **چارەسەری کێشەکان**: خاوبوونەوە، گەرمبوون، باتری و سپیکەر
+- 🎮 **یاری & PUBG**: مۆبایلی گونجاو بۆ 90fps و 120fps`;
+  appendMessageUI("mobileChatHistory", "ai", welcomeText, "MOB");
+}
+
+function clearMobileChat() {
+  mobileChatHistory = [];
+  document.getElementById("mobileChatHistory").innerHTML = "";
+  initMobileWelcome();
+  showToast("مێژووی ڕاوێژکاری مۆبایل پاککرایەوە");
+}
+
+function askMobileCategory(promptText) {
+  document.getElementById("mobileInput").value = promptText;
+  const workspace = document.getElementById("mobileWorkspace");
+  workspace.scrollIntoView({ behavior: 'smooth' });
+  sendMobileMessage();
+}
+
+function askMobileQuick() {
+  const q = document.getElementById("mobileQuickInput").value.trim();
+  if (!q) return;
+  document.getElementById("mobileInput").value = q;
+  document.getElementById("mobileQuickInput").value = "";
+  const workspace = document.getElementById("mobileWorkspace");
+  workspace.scrollIntoView({ behavior: 'smooth' });
+  sendMobileMessage();
+}
+
+async function sendMobileMessage() {
+  const input = document.getElementById("mobileInput");
+  const text = input.value.trim();
+  const sendBtn = document.getElementById("sendMobileBtn");
+  const lang = document.getElementById("mobileLang").value;
+
+  if (!text) return;
+
+  input.value = "";
+  sendBtn.disabled = true;
+  document.getElementById("sendMobileBtnLabel").textContent = "شیکردنەوە...";
+
+  appendMessageUI("mobileChatHistory", "user", text);
+
+  const systemInstruction = `You are LIO TECH Mobile Adviser & Diagnostic Specialist, created by KHOSHAWII HASSO.
+Respond in language '${lang}' (Kurdish Sorani if 'ku').
+When recommending phones, structure with:
+1. 🏆 **Top Recommendation** (Model name, Specs, Price range)
+2. ⚡ **Key Specs** (Processor, Camera, Battery, Screen)
+3. 💡 **Why choose this model?**
+
+When diagnosing phone issues:
+1. 🔴 **Problem Cause**
+2. 🛠️ **Step-by-step Fixes**
+3. ✅ **Pro Tip by KHOSHAWII HASSO**`;
+
+  mobileChatHistory.push({ role: 'user', parts: [{ text }] });
+
+  try {
+    const resText = await callGeminiTextAPI(systemInstruction, mobileChatHistory);
+    mobileChatHistory.push({ role: 'model', parts: [{ text: resText }] });
+    appendMessageUI("mobileChatHistory", "ai", resText, "MOB");
+  } catch (err) {
+    appendMessageUI("mobileChatHistory", "ai", `❌ کێشەیەک ڕوویدا: ${err.message}`, "MOB");
+  }
+
+  sendBtn.disabled = false;
+  document.getElementById("sendMobileBtnLabel").textContent = "پرسیار لە پسپۆڕ بکە";
+}
+
+
+/* =========================================================================
+   TAB 3: LIO MOVIES LOGIC (TMDB + GEMINI AI)
+   ========================================================================= */
+async function tmdbFetch(path, params = {}) {
+  const url = new URL(`https://api.themoviedb.org/3${path}`);
+  url.searchParams.set("api_key", TMDB_API_KEY);
+  Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`TMDB Error ${res.status}`);
+  return res.json();
+}
+
+async function loadMovieGenres() {
+  try {
+    const data = await tmdbFetch("/genre/movie/list", { language: "en-US" });
+    movieGenresList = data.genres || [];
+    const container = document.getElementById("movieGenresContainer");
+    container.innerHTML = "";
+
+    movieGenresList.forEach(genre => {
+      const chip = document.createElement("button");
+      chip.className = "px-3 py-1.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-amber-500 hover:text-amber-500 transition-all whitespace-nowrap font-medium shadow-sm";
+      chip.textContent = genre.name;
+      chip.onclick = () => loadMovieGenre(genre.id, genre.name);
+      container.appendChild(chip);
+    });
+  } catch (e) {
+    console.error("Genres load error:", e);
+  }
+}
+
+async function loadMovieCategory(category, btn = null) {
+  if (btn) {
+    document.querySelectorAll(".movie-cat-btn").forEach(b => {
+      b.className = "movie-cat-btn px-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-amber-500 transition-all";
+    });
+    btn.className = "movie-cat-btn px-4 py-2 rounded-xl bg-amber-500 text-white transition-all shadow-md";
+  }
+
+  const titles = { popular: "Popular Movies", now_playing: "Now Playing", top_rated: "Top Rated", upcoming: "Upcoming Movies" };
+  document.getElementById("movieSectionTitle").textContent = titles[category] || "Movies";
+
+  movieActiveCategory = category;
+  movieCurrentPage = 1;
+  showMoviesGridLoading();
+
+  try {
+    const data = await tmdbFetch(`/movie/${category}`, { page: 1, language: "en-US" });
+    movieTotalPages = data.total_pages || 1;
+    currentMoviesList = data.results || [];
+    renderMoviesGrid(currentMoviesList, false);
+  } catch (err) {
+    document.getElementById("moviesGrid").innerHTML = `<div class="col-span-full text-center text-red-500 py-10">${err.message}</div>`;
+  }
+}
+
+async function loadMovieGenre(genreId, genreName) {
+  document.getElementById("movieSectionTitle").textContent = `Genre: ${genreName}`;
+  movieCurrentPage = 1;
+  showMoviesGridLoading();
+
+  try {
+    const data = await tmdbFetch("/discover/movie", { with_genres: genreId, page: 1, language: "en-US" });
+    movieTotalPages = data.total_pages || 1;
+    currentMoviesList = data.results || [];
+    renderMoviesGrid(currentMoviesList, false);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function searchMovies() {
+  const query = document.getElementById("movieSearchInput").value.trim();
+  if (!query) return;
+
+  document.getElementById("movieSectionTitle").textContent = `Search: "${query}"`;
+  showMoviesGridLoading();
+
+  try {
+    const data = await tmdbFetch("/search/movie", { query, language: "en-US", page: 1 });
+    currentMoviesList = data.results || [];
+    renderMoviesGrid(currentMoviesList, false);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function showMoviesGridLoading() {
+  document.getElementById("moviesGrid").innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 font-bold"><i class="fa-solid fa-spinner animate-spin text-2xl mb-2 block"></i>بارکردنی فیلمەکان...</div>`;
+}
+
+function renderMoviesGrid(list, append = false) {
+  const container = document.getElementById("moviesGrid");
+  if (!append && !list.length) {
+    container.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400">هیچ فیلمێک نەدۆزرایەوە.</div>`;
+    return;
+  }
+
+  const html = list.map(m => {
+    const poster = m.poster_path ? `https://image.tmdb.org/t/p/w500${m.poster_path}` : "https://placehold.co/500x750/1f2937/ffffff?text=No+Poster";
+    const year = m.release_date ? m.release_date.slice(0, 4) : "N/A";
+    const rating = m.vote_average ? m.vote_average.toFixed(1) : "N/A";
+
+    return `
+      <div onclick="openMovieDetails(${m.id})" class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden cursor-pointer hover:scale-[1.03] hover:border-amber-500/50 transition-all shadow-md group">
+        <div class="relative aspect-[2/3] bg-gray-800">
+          <img src="${poster}" alt="${escapeHtml(m.title)}" loading="lazy" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+          <span class="absolute top-2 right-2 bg-black/70 backdrop-blur-md text-amber-400 font-bold text-[11px] px-2 py-0.5 rounded-lg">⭐ ${rating}</span>
+        </div>
+        <div class="p-3">
+          <h4 class="font-extrabold text-xs truncate">${escapeHtml(m.title)}</h4>
+          <p class="text-[10px] text-[var(--text-muted)] mt-1">${year}</p>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  if (append) {
+    container.insertAdjacentHTML('beforeend', html);
+  } else {
+    container.innerHTML = html;
+  }
+}
+
+async function openMovieDetails(movieId) {
+  const modal = document.getElementById("movieModal");
+  const modalContent = document.getElementById("movieModalContent");
+  modal.classList.remove("hidden");
+  modalContent.innerHTML = `<div class="text-center py-16 text-gray-400"><i class="fa-solid fa-spinner animate-spin text-3xl mb-3 block"></i>بارکردنی زانیاری فیلم...</div>`;
+
+  try {
+    const m = await tmdbFetch(`/movie/${movieId}`, { append_to_response: "videos,credits" });
+    const poster = m.poster_path ? `https://image.tmdb.org/t/p/w500${m.poster_path}` : "https://placehold.co/500x750/1f2937/ffffff?text=No+Poster";
+    const year = m.release_date ? m.release_date.slice(0, 4) : "N/A";
+    const genres = (m.genres || []).map(g => g.name).join(" • ");
+    const trailer = (m.videos?.results || []).find(v => v.site === "YouTube" && v.type === "Trailer") || m.videos?.results?.[0];
+
+    modalContent.innerHTML = `
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <img src="${poster}" class="w-full rounded-2xl shadow-lg">
+        </div>
+        <div class="md:col-span-2 space-y-4 text-right">
+          <h2 class="text-2xl font-black">${escapeHtml(m.title)}</h2>
+          <div class="flex flex-wrap gap-2 text-xs font-bold text-amber-500">
+            <span>📅 ${year}</span>
+            <span>⭐ ${m.vote_average?.toFixed(1)}</span>
+            <span>⏱ ${m.runtime || 0} min</span>
+          </div>
+          <p class="text-xs text-[var(--text-muted)] font-medium leading-relaxed">${escapeHtml(genres)}</p>
+          
+          <div class="space-y-1">
+            <h4 class="font-extrabold text-xs text-gray-400">Overview (English)</h4>
+            <p class="text-xs leading-relaxed opacity-90">${escapeHtml(m.overview || "No description available.")}</p>
+          </div>
+
+          <div id="movieAiTranslation" class="p-4 rounded-2xl bg-[var(--bg-color)] border border-amber-500/30 text-xs leading-relaxed space-y-2">
+            <div class="flex items-center gap-2 font-bold text-amber-500">
+              <i class="fa-solid fa-robot"></i>
+              <span>وەرگێڕان و پوختەی LIO AI بە کوردی:</span>
+            </div>
+            <p id="translationText" class="animate-pulse text-gray-400">LIO AI خەریکی وەرگێڕانی زانیاری فیلمەکەیە...</p>
+          </div>
+        </div>
+      </div>
+
+      ${trailer ? `
+        <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
+          <h4 class="font-extrabold text-xs mb-3 flex items-center gap-2">
+            <i class="fa-brands fa-youtube text-red-500 text-base"></i>
+            <span>تریلەری فەرمی (Official Trailer)</span>
+          </h4>
+          <iframe class="w-full aspect-video rounded-2xl border-0" src="https://www.youtube.com/embed/${trailer.key}" allowfullscreen></iframe>
+        </div>
+      ` : ''}
+    `;
+
+    // Trigger AI Kurdish Translation
+    translateMovieAI(m);
+
+  } catch (err) {
+    modalContent.innerHTML = `<div class="text-center py-10 text-red-500">${err.message}</div>`;
+  }
+}
+
+function closeModalModal() {
+  document.getElementById("movieModal").classList.add("hidden");
+}
+
+async function translateMovieAI(movie) {
+  const prompt = `Translate & summarize this movie into natural Kurdish Sorani.
+Title: ${movie.title}
+Overview: ${movie.overview}
+Genres: ${(movie.genres || []).map(g => g.name).join(", ")}
+
+Format output clearly in Kurdish Sorani with:
+• ناوی فیلم بە کوردی
+• پوختەی چیرۆک
+• جۆری فیلم`;
+
+  try {
+    const text = await callGeminiTextAPI("You are a movie translator into Kurdish Sorani.", [{ role: 'user', parts: [{ text }]}]);
+    const el = document.getElementById("translationText");
+    if (el) {
+      el.classList.remove("animate-pulse", "text-gray-400");
+      el.innerHTML = marked.parse(text);
+    }
+  } catch (err) {
+    const el = document.getElementById("translationText");
+    if (el) el.textContent = "نەتوانرا وەرگێڕان بەرهەم بهێنرێت.";
+  }
+}
+
+async function askMovieAI() {
+  const input = document.getElementById("movieAiInput");
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = "";
+  const chatBox = document.getElementById("movieAiChat");
+  
+  const userMsg = document.createElement("div");
+  userMsg.className = "p-2.5 rounded-xl bg-amber-500 text-white font-medium max-w-[85%] mr-auto rtl:ml-auto rtl:mr-0 text-xs";
+  userMsg.textContent = text;
+  chatBox.appendChild(userMsg);
+
+  const aiMsg = document.createElement("div");
+  aiMsg.className = "p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] max-w-[85%] text-xs space-y-1";
+  aiMsg.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> LIO AI بەدوای فیلمی گونجاو دەگەڕێت...`;
+  chatBox.appendChild(aiMsg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  const prompt = `User preferences: ${text}. Recommend 3 movies with Titles, Year, Rating, and Why it matches in Kurdish Sorani.`;
+
+  try {
+    const res = await callGeminiTextAPI("You are a movie recommendation assistant speaking Kurdish Sorani.", [{ role: 'user', parts: [{ text: prompt }]}]);
+    aiMsg.innerHTML = marked.parse(res);
+  } catch (e) {
+    aiMsg.textContent = "ببورە، هەڵەیەک ڕوویدا لە وەرگرتنی پێشنیار.";
+  }
+}
+
+
+/* =========================================================================
+   TAB 4: AI IMAGE CREATOR LOGIC (GEMINI 3.1 FLASH IMAGE)
+   ========================================================================= */
+const DAILY_LIMIT = 10;
+
+function getTodayString() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
+
+function getImageUsage() {
+  const stored = localStorage.getItem("lio-image-usage-data");
+  if (stored) {
+    const parsed = JSON.parse(stored);
+    if (parsed.date === getTodayString()) return parsed;
+  }
+  const fresh = { date: getTodayString(), count: 0 };
+  localStorage.setItem("lio-image-usage-data", JSON.stringify(fresh));
+  return fresh;
+}
+
+function updateImageCounterUI() {
+  const usage = getImageUsage();
+  const counterEl = document.getElementById("imgDailyCounter");
+  if (counterEl) {
+    counterEl.textContent = `${DAILY_LIMIT - usage.count} / ${DAILY_LIMIT}`;
+  }
+}
+
+async function generateImage() {
+  const promptInput = document.getElementById("imagePrompt");
+  const promptText = promptInput.value.trim();
+  const ratio = document.getElementById("imageRatio").value;
+  const style = document.getElementById("imageStyle").value;
+  const btn = document.getElementById("generateImgBtn");
+  const btnText = document.getElementById("generateImgBtnText");
+
+  if (!promptText) {
+    showToast("تکایە سەرەتا وەسفی وێنەکەت بنووسە.");
+    return;
+  }
+
+  const usage = getImageUsage();
+  if (usage.count >= DAILY_LIMIT) {
+    showToast("توانای دروستکردنی وێنەی ئه‌مرۆت تەواو بووە. سبەی دووبارە ھەوڵ بدەرەوە!");
+    return;
+  }
+
+  btn.disabled = true;
+  btnText.textContent = "✨ LIO AI وێنەکە دروست دەکات...";
+
+  const finalPrompt = `Create a high quality image:
+Prompt: ${promptText}
+Visual Style: ${style}
+Aspect Ratio: ${ratio}`;
+
+  const payload = {
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: finalPrompt }]
+      }
+    ],
+    generationConfig: {
+      responseModalities: ["IMAGE"],
+      imageConfig: { aspectRatio: ratio }
+    }
+  };
+
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent?key=${apiKey}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data?.error?.message || "Gemini Image API Error");
+
+    const candidate = data?.candidates?.[0];
+    const part = candidate?.content?.parts?.find(p => p.inlineData);
+
+    if (!part || !part.inlineData?.data) {
+      throw new Error("وێنەکە لەلایەن سێرڤەرەوە دابین نەکرا.");
+    }
+
+    const mimeType = part.inlineData.mimeType || "image/png";
+    const imageUrl = `data:${mimeType};base64,${part.inlineData.data}`;
+
+    // Update usage
+    usage.count += 1;
+    localStorage.setItem("lio-image-usage-data", JSON.stringify(usage));
+    updateImageCounterUI();
+
+    // Render in gallery
+    renderImageInGallery(imageUrl, promptText);
+    showToast("وێنەکە بەسەرکەوتوویی دروستکرا!");
+
+  } catch (err) {
+    showToast(`هەڵە لە دروستکردنی وێنە: ${err.message}`);
+    console.error("Image Gen Error:", err);
+  }
+
+  btn.disabled = false;
+  btnText.textContent = "✨ دروستکردنی وێنە";
+}
+
+function renderImageInGallery(url, promptStr) {
+  const gallery = document.getElementById("imageGallery");
+  const emptyMsg = document.getElementById("emptyGalleryMsg");
+  if (emptyMsg) emptyMsg.remove();
+
+  const card = document.createElement("div");
+  card.className = "bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden shadow-lg space-y-2 p-2 transition-all hover:scale-[1.02]";
+
+  card.innerHTML = `
+    <img src="${url}" alt="Generated Image" class="w-full aspect-square object-cover rounded-xl cursor-pointer" onclick="window.open('${url}', '_blank')">
+    <p class="text-[11px] text-[var(--text-muted)] px-1 truncate font-medium" title="${escapeHtml(promptStr)}">${escapeHtml(promptStr)}</p>
+    <a href="${url}" download="LIO-AI-Image.png" class="block w-full py-2 bg-purple-500/10 text-purple-500 hover:bg-purple-500 hover:text-white rounded-xl text-center text-xs font-bold transition-all">
+      ⬇️ دابەزاندن (Download)
+    </a>
+  `;
+
+  gallery.prepend(card);
+}
+
+
+/* =========================================================================
+   GENERIC GEMINI TEXT API CALLER
+   ========================================================================= */
+async function callGeminiTextAPI(systemInstruction, contents) {
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TEXT_MODEL}:generateContent?key=${apiKey}`;
+
+  const payload = {
+    systemInstruction: { parts: [{ text: systemInstruction }] },
+    contents: contents,
+    generationConfig: { temperature: 0.4, maxOutputTokens: 2048 }
+  };
+
+  let retryDelay = 1000;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.status === 429 && attempt < 2) {
+        await new Promise(r => setTimeout(r, retryDelay));
+        retryDelay *= 2;
+        continue;
+      }
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error?.message || `API Error ${res.status}`);
+
+      const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("").trim();
+      return text || "هیچ وەڵامێک نەدۆزرایەوە.";
+
+    } catch (e) {
+      if (attempt === 2) throw e;
+      await new Promise(r => setTimeout(r, retryDelay));
+      retryDelay *= 2;
+    }
+  }
+}
+
+
+/* =========================================================================
+   UTILITY HELPERS
+   ========================================================================= */
+function appendMessageUI(containerId, role, text, avatarLabel = "LIO") {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const isUser = role === "user";
+  const div = document.createElement("div");
+  div.className = `flex gap-2.5 ${isUser ? 'justify-end' : 'justify-start'} animate-fade-in`;
+
+  const parsedText = typeof marked !== 'undefined' ? marked.parse(text) : text;
+
+  div.innerHTML = `
+    ${!isUser ? `
+      <div class="w-8 h-8 rounded-xl gradient-btn-red text-white flex items-center justify-center font-black text-xs shrink-0 mt-1">
+        ${avatarLabel}
+      </div>
+    ` : ''}
+
+    <div class="max-w-[85%] sm:max-w-[78%] rounded-2xl p-3.5 text-xs sm:text-sm leading-relaxed ${
+      isUser 
+        ? 'bg-red-600 text-white rounded-br-none rtl:rounded-br-2xl rtl:rounded-bl-none' 
+        : 'bg-[var(--bg-color)] border border-[var(--card-border)] text-[var(--text-main)] rounded-bl-none rtl:rounded-bl-2xl rtl:rounded-br-none'
+    }">
+      <div class="markdown-body">
+        ${parsedText}
+      </div>
+      
+      ${!isUser ? `
+        <div class="mt-2.5 pt-1.5 border-t border-[var(--card-border)] flex items-center justify-between text-[10px] text-[var(--text-muted)]">
+          <div class="flex items-center gap-2">
+            <button onclick="copyToClipboard(this)" data-text="${encodeURIComponent(text)}" class="hover:text-red-500 transition-colors flex items-center gap-1">
+              <i class="fa-regular fa-copy"></i>
+              <span>کۆپی</span>
+            </button>
+            <button onclick="speakText(this)" data-text="${encodeURIComponent(text.replace(/[*_#]/g, ''))}" class="hover:text-red-500 transition-colors flex items-center gap-1">
+              <i class="fa-solid fa-volume-high"></i>
+              <span>دەنگ</span>
+            </button>
+          </div>
+          <span>LIO TECH</span>
+        </div>
+      ` : ''}
+    </div>
+
+    ${isUser ? `
+      <div class="w-8 h-8 rounded-xl bg-gray-700 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-1">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    ` : ''}
+  `;
+
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function copyToClipboard(btn) {
+  const text = decodeURIComponent(btn.getAttribute("data-text"));
+  const tempInput = document.createElement("textarea");
+  tempInput.value = text;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+  showToast("کۆپی کرا!");
+}
+
+function speakText(btn) {
+  const text = decodeURIComponent(btn.getAttribute("data-text"));
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = currentLang === 'ku' ? 'ar-SA' : 'en-US';
+    window.speechSynthesis.speak(utterance);
+    showToast("خوێندنەوەی دەنگی دەستی پێکرد...");
+  } else {
+    showToast("Text-to-speech not supported.");
+  }
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+</script>
+
+</body>
+</html>
